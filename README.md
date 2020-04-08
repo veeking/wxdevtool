@@ -5,7 +5,7 @@ WeChat WebDevTool in Docker(With LXDE)
 ## Run
 
 ```bash
-docker run -d --name wxdevtool -p 8080:80 -v /path/to/projects:/projects seancheung/wxdevtool:latest
+docker run -d --name wxdevtool -p 8080:80 -v /path/to/projects:/projects veekingsen/wxdevtool:latest
 ```
 
 ## Commands
@@ -27,7 +27,7 @@ The IDE HTTP service is exposed at port 9000.
 
 ```bash
 # mapping container port 9000 to local port 8083
-docker run -d --name wxdevtool -p 8083:9000 -p 8080:80 -v /path/to/projects:/projects seancheung/wxdevtool:latest
+docker run -d --name wxdevtool -p 8083:9000 -p 8080:80 -v /path/to/projects:/projects veekingsen/wxdevtool:latest
 
 # open project
 curl localhost:8083/open?projectpath=path_to_project
@@ -58,13 +58,13 @@ rc tags are automated images which are not configured yet. To config manullay:
 1. Pull an RC image
 
 ```bash
-docker pull seancheung/wxdevtool:rc
+docker pull veekingsen/wxdevtool:rc
 ```
 
 2. Run
 
 ```bash
-docker run -d --name wxdevtool-rc -p 8080:80 seancheung/wxdevtool:rc
+docker run -d --name wxdevtool-rc -p 8080:80 veekingsen/wxdevtool:rc
 ```
 
 3. Config Wine
