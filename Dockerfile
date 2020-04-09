@@ -31,7 +31,7 @@ RUN set -ex \
     && curl -sL https://dl.winehq.org/wine-builds/winehq.key | apt-key add - \
     && apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' \
     && apt-get update \
-    && apt-get install -y winehq-stable \
+    && aptitude install -y winehq-stable \
     && mkdir -p "$ROOT_DIR" /tmp/node \
     && curl -sL $NODE_URL | tar -xzv --strip-components=1 -C /tmp/node \
     && cp -rf /tmp/node/bin /tmp/node/lib "$ROOT_DIR/" \
