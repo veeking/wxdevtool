@@ -5,7 +5,7 @@ LABEL maintainer="veeking"
 
 ARG TIMEZONE=Asia/Shanghai
 ARG WXURL=https://servicewechat.com/wxa-dev-logic/download_redirect?type=x64&from=mpwiki
-ARG NODE_URL=https://nodejs.org/dist/v11.14.0/node-v11.14.0-linux-x64.tar.gz
+ARG NODE_URL=https://npm.taobao.org/mirrors/node/v11.14.0/node-v11.14.0-linux-x64.tar.gz
 ARG NWJS_URL=https://npm.taobao.org/mirrors/nwjs/v0.38.0/nwjs-sdk-v0.38.0-linux-x64.tar.gz
 
 ENV LANG C.UTF-8
