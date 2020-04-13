@@ -1,10 +1,12 @@
 FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
-LABEL maintainer="Sean Cheung <theoxuanx@gmail.com>"
+RUN sed -i 's#http://\(archive\|security\).ubuntu.com/#http://mirrors.aliyun.com/#' /etc/apt/sources.list \
+  && cat /etc/apt/sources.list
+LABEL maintainer="veeking"
 
 ARG TIMEZONE=Asia/Shanghai
 ARG WXURL=https://servicewechat.com/wxa-dev-logic/download_redirect?type=x64&from=mpwiki
 ARG NODE_URL=https://nodejs.org/dist/v11.14.0/node-v11.14.0-linux-x64.tar.gz
-ARG NWJS_URL=https://dl.nwjs.io/v0.38.0/nwjs-sdk-v0.38.0-linux-x64.tar.gz
+ARG NWJS_URL=https://npm.taobao.org/mirrors/nwjs/v0.38.0/nwjs-sdk-v0.38.0-linux-x64.tar.gz
 
 ENV LANG C.UTF-8
 ENV DISPLAY :1.0
@@ -59,10 +61,6 @@ RUN set -ex \
     && sed -ri -e 's#AppData/Local/\$\{global.userDirName\}/User Data#.config/\$\{global.userDirName\}#g' "$pkgname/js/common/cli/index.js" \
     && sed -ri -e 's#`./\$\{global.appname\}.exe`#i.join(__dirname, "../../../../bin/wxstart")#g' "$pkgname/js/common/cli/index.js" \
     && sed -ri -e 's#微信开发者工具#wxdevtool#g' "$pkgname/package.json" \
-    && cd "$pkgname/node_modules/node-sync-ipc" \
-    && "$ROOT_DIR/bin/node" "$ROOT_DIR/bin/npm" i --unsafe-perm --scripts-prepend-node-path \
-    && rm -rf "$pkgname/node_modules/node-sync-ipc-nwjs" \
-    && cp -rf "$pkgname/node_modules/node-sync-ipc" "$pkgname/node_modules/node-sync-ipc-nwjs" \
     && mkdir -p $HOME/.wine32 \
     && for f in $pkgname/js/vendor/*.exe; do \
         mv $f "$ROOT_DIR/"; \
