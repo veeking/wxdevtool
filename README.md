@@ -1,6 +1,6 @@
 # wxdevtool
 
-WeChat WebDevTool in Docker(With LXDE)
+微信开发者工具Docker版
 
 ## Run
 
@@ -42,29 +42,21 @@ See [Reference](https://developers.weixin.qq.com/miniprogram/dev/devtools/http.h
 
 |  Tag   |   Version    |
 | :----: | :----------: |
-| latest |    1.02.1909111    |
-| rc |    1.02.1909111    |
-|  1.02  | 1.02.1909111 |
-|  1.02-rc  | 1.02.1909111 |
-|  1909111  | 1.02.1909111 |
-|  1909111-rc  | 1.02.1909111 |
-|  1902010  | 1.02.1902010 |
-|  1902010-rc  | 1.02.1902010 |
+| latest |    1.02.2004022    |
+|  1.02-2004022  | 1.02.2004022 |
 
-### RC Tags
+### Steps
 
-rc tags are automated images which are not configured yet. To config manullay:
-
-1. Pull an RC image
+1. Pull an latest image
 
 ```bash
-docker pull veekingsen/wxdevtool:rc
+docker pull veekingsen/wxdevtool:latest
 ```
 
 2. Run
 
 ```bash
-docker run -d --name wxdevtool-rc -p 8080:80 veekingsen/wxdevtool:rc
+docker run -d --name wxdevtool -p 8080:80 veekingsen/wxdevtool:latest
 ```
 
 3. Config Wine
@@ -72,7 +64,7 @@ docker run -d --name wxdevtool-rc -p 8080:80 veekingsen/wxdevtool:rc
 Open Browser at _http://localhost:8080 wait until noVNC is up. Then run
 
 ```bash
-docker exec -t wxdevtool-rc winecfg
+docker exec -t wxdevtool winecfg
 ```
 
 Follow wine's instructions in UI. The attached shell will automatically quit when done.
@@ -82,7 +74,7 @@ Follow wine's instructions in UI. The attached shell will automatically quit whe
 4. Config wxdevtool to enable IDE service port
 
 ```bash
-docker exec -t wxdevtool-rc wxdevtool start
+docker exec -t wxdevtool wxdevtool start
 ```
 
 Open Browser at _http://localhost:8080_, Open Wechat WebDevTool's settings and enable IDE service port. See [Referece](https://developers.weixin.qq.com/miniprogram/dev/devtools/cli.html)
@@ -90,7 +82,7 @@ Open Browser at _http://localhost:8080_, Open Wechat WebDevTool's settings and e
 5. Restart container
 
 ```bash
-docker restart wxdevtool-rc
+docker restart wxdevtool
 ```
 
 ### Custom build Args
@@ -116,3 +108,8 @@ https://dl.nwjs.io/v${version}/nwjs-sdk-v${version}-linux-x64.tar.gz
 Mirror:
 
 https://npm.taobao.org/mirrors/nwjs/v${version}/nwjs-sdk-v${version}-linux-x64.tar.gz
+
+### Reference
+[linux版微信开发者工具](https://github.com/dragonation/wechat-devtools)
+
+[Linux微信web开发者工具](https://github.com/cytle/wechat_web_devtools)
