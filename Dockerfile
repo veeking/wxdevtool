@@ -59,7 +59,7 @@ RUN set -ex \
     && echo "Configuring package..." \
     && export pkgname="$ROOT_DIR/package.nw" \
     && sed -ri -e 's#AppData/Local/\$\{global.userDirName\}/User Data#.config/\$\{global.userDirName\}#g' "$pkgname/js/common/cli/index.js" \
-    && sed -ri -e 's#`./\$\{global.appname\}.exe`#i.join(__dirname, "../../../../bin/wxstart")#g' "$pkgname/js/common/cli/index.js" \
+    && sed -ri -e 's#`./\$\{global.appname\}.exe`#o.join(__dirname, "../../../../bin/wxstart")#g' "$pkgname/js/common/cli/index.js" \
     && sed -ri -e 's#微信开发者工具#wxdevtool#g' "$pkgname/package.json" \
     && mkdir -p $HOME/.wine32 \
     && for f in $pkgname/js/vendor/*.exe; do \
