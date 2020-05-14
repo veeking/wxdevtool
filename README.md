@@ -153,3 +153,10 @@ https://npm.taobao.org/mirrors/nwjs/v${version}/nwjs-sdk-v${version}-linux-x64.t
 [linux版微信开发者工具](https://github.com/dragonation/wechat-devtools)
 
 [Linux微信web开发者工具docker版本2](https://github.com/cytle/wechat_web_devtools)
+
+
+## 其它
+2020-05-14: docker运行后开发者工具没有自动启动
+- 原因：
+ - 1、$WINEPREFIX/user.reg默认不存在 导致无法启动开发者工具 (user.reg不存在的原因是新版wine(>=5.0)没能正确安装,而且需要手动初始化，才会在~/.wine32生成user.reg等文件)
+ - 2、$IDE_PATH端口文件默认不存在，导致也无法启动nginx (手动开启端口后，重启docker正常恢复)
