@@ -1,5 +1,5 @@
 #!/bin/bash
-
-if [ -f "$WINEPREFIX/user.reg" ]; then
-    exec $ROOT_DIR/bin/wxdevtool start
-fi
+# TODO: 目前版本没有装wine所以不存在~/.wine32/user.reg注册表文件 所以暂时移除判断
+# if [ -f "$WINEPREFIX/user.reg" ]; then
+# fi
+exec $ROOT_DIR/bin/wxdevtool start
