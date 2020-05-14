@@ -1,7 +1,7 @@
 FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
 RUN sed -i 's#http://\(archive\|security\).ubuntu.com/#http://mirrors.aliyun.com/#' /etc/apt/sources.list \
   && cat /etc/apt/sources.list
-LABEL maintainer="veeking"
+LABEL maintainer="veekingsen"
 
 ARG TIMEZONE=Asia/Shanghai
 ARG WXURL=https://servicewechat.com/wxa-dev-logic/download_redirect?type=x64&from=mpwiki
